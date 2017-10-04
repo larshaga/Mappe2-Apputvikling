@@ -1,0 +1,47 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Fornavn:"/>
+
+    <EditText
+        android:id="@+id/fornavn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Etternavn:"/>
+
+    <EditText
+        android:id="@+id/etternavn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Telefon:"/>
+
+    <EditText
+        android:id="@+id/telefon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/leggtil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="leggtil"
+        android:text="Legg til"/>
+
+    <TextView
+        android:id="@+id/utskrift"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>
