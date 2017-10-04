@@ -39,6 +39,12 @@
         android:layout_height="wrap_content"
         android:onClick="leggtil"
         android:text="Legg til"/>
+    <Button
+        android:id="@+id/visalle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="visalle"
+        android:text="Vis alle" />
 
     <TextView
         android:id="@+id/utskrift"

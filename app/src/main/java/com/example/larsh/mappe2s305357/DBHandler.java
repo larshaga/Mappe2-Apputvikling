@@ -2,9 +2,13 @@ package com.example.larsh.mappe2s305357;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DBHandler extends SQLiteOpenHelper
 {
@@ -45,12 +49,34 @@ public class DBHandler extends SQLiteOpenHelper
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(KEY_FIRSTNAME, student.getFirstName());
+        values.put(KEY_FIRSTNAME, student.getFirstname());
         values.put(KEY_LASTNAME, student.getLastName());
         values.put(KEY_PHONENUMBER, student.getPhonenumber());
 
         db.insert(TABLE_STUDENT, null, values);
         db.close();
     }
+
+    public List<Student> finnAlleKontakter() {
+        List<Student> kontaktListe = new ArrayList<Student>();
+        String selectQuery = "SELECT * FROM " + TABLE_STUDENT;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        if (cursor.moveToFirst()) {
+            do {
+                Student kontakt = new Student();
+                kontakt.set_ID(cursor.getLong(0));
+                kontakt.setFirstname(cursor.getString(1));
+                kontakt.setLastName(cursor.getString(2));
+                kontakt.setPhonenumber(cursor.getString(3));
+                kontaktListe.add(kontakt);
+            } while (cursor.moveToNext());
+            cursor.close();
+            db.close();
+        }
+        return kontaktListe;
+    }
+
+
 
 }

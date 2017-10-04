@@ -4,10 +4,9 @@ public class Student
 {
 
     long _ID;
-    String firstName;
-    String lastName;
+    String fornavn;
+    String etternavn;
     String phonenumber;
-
 
     public long get_ID( )
     {
@@ -21,28 +20,28 @@ public class Student
         this._ID = _ID;
     }
 
-    public String getFirstName( )
+    public String getFirstname( )
     {
 
-        return firstName;
+        return fornavn;
     }
 
-    public void setFirstName( String firstName )
+    public void setFirstname( String navn )
     {
 
-        this.firstName = firstName;
+        fornavn = navn;
     }
 
     public String getLastName( )
     {
 
-        return lastName;
+        return etternavn;
     }
 
-    public void setLastName( String lastName )
+    public void setLastName( String navn )
     {
 
-        this.lastName = lastName;
+        etternavn = navn;
     }
 
     public String getPhonenumber( )
@@ -51,31 +50,34 @@ public class Student
         return phonenumber;
     }
 
-    public void setPhonenumber( String phonenumber )
+    public void setPhonenumber( String telefon )
     {
 
-        this.phonenumber = phonenumber;
+        phonenumber = telefon;
     }
 
-    public Student( String firstName, String lastName, String phonenumber )
-    {
-
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.phonenumber = phonenumber;
-    }
-
-    public Student( )
-    {
-
-    }
-
-    public Student( long _ID, String firstName, String lastName, String phonenumber )
+    public Student( long _ID, String navn, String navn1, String telefon )
     {
 
         this._ID = _ID;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.phonenumber = phonenumber;
+        fornavn = navn;
+        etternavn = navn1;
+        phonenumber = telefon;
+    }
+
+    public Student( String navn, String navn1, String telefon )
+    {
+
+
+        fornavn = navn;
+        etternavn = navn1;
+        phonenumber = telefon;
+
+
+    }
+
+    public Student()
+    {
+
     }
 }
