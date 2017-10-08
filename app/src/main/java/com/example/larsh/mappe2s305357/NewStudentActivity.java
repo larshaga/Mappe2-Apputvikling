@@ -20,10 +20,6 @@ public class NewStudentActivity extends AppCompatActivity
     TextView utskrift;
     DBHandler db;
 
-    String fornavn;
-    String etternavn;
-    String telefon;
-
 
     @Override
     protected void onCreate( Bundle savedInstanceState )
