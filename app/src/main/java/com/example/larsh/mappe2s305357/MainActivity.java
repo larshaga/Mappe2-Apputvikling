@@ -108,6 +108,10 @@ public class MainActivity extends AppCompatActivity
 
         switch (item.getItemId())
         {
+            case R.id.refresh:
+                recreate();
+                Toast.makeText(this, "ListView refreshed", Toast.LENGTH_SHORT).show();
+                break;
             case R.id.deletestudent:
                 Intent deleteStudent = new Intent(this, DeleteStudentActivity.class);
                 startActivity(deleteStudent);
