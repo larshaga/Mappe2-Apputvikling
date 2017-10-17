@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.larsh.mappe2s305357.MainActivity">
+    tools:context="com.example.larsh.mappe2s305357.ListViewActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/top_toolbar"
@@ -20,7 +20,6 @@
         android:id="@+id/studentlistview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#BEBEBE"
         android:layout_below="@id/top_toolbar"/>
 
     <android.support.design.widget.FloatingActionButton
@@ -29,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginBottom="25dp"
+        android:layout_marginBottom="100dp"
         android:layout_marginEnd="25dp"
         app:fabSize="normal"
         app:srcCompat="@drawable/ic_add_circle_outline_black_24dp"/>
@@ -40,7 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="25dp"
         android:layout_marginEnd="25dp"
         app:fabSize="normal"
         app:srcCompat="@drawable/ic_message_black_24dp"/>

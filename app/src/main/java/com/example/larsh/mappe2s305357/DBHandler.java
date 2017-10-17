@@ -57,13 +57,17 @@ public class DBHandler extends SQLiteOpenHelper
         db.close();
     }
 
-    public List<Student> finnAlleKontakter() {
+    public List<Student> finnAlleKontakter( )
+    {
+
         List<Student> kontaktListe = new ArrayList<Student>();
         String selectQuery = "SELECT * FROM " + TABLE_STUDENT;
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
-        if (cursor.moveToFirst()) {
-            do {
+        if (cursor.moveToFirst())
+        {
+            do
+            {
                 Student kontakt = new Student();
                 kontakt.set_ID(cursor.getLong(0));
                 kontakt.setFirstname(cursor.getString(1));
@@ -77,6 +81,54 @@ public class DBHandler extends SQLiteOpenHelper
         return kontaktListe;
     }
 
+
+    public void slettKontaktString( String studentFirstName, String studentLastName )
+    {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_STUDENT, KEY_FIRSTNAME + "='" + studentFirstName + "' AND " + KEY_LASTNAME + " = '" + studentLastName + "'", new String[]{ });
+        db.close();
+    }
+
+    public List<Student> findAStudent( String studentFirstName, String studentLastName )
+    {
+
+        List<Student> studentList = new ArrayList<>();
+        String selectQuery = "SELECT * FROM " + TABLE_STUDENT + " WHERE " + KEY_FIRSTNAME + "='" + studentFirstName + "' AND " + KEY_LASTNAME + " = '" + studentLastName + "'";
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        if (cursor.moveToFirst())
+        {
+            do
+            {
+                Student studentInfo = new Student();
+                studentInfo.set_ID(cursor.getLong(0));
+                studentInfo.setFirstname(cursor.getString(1));
+                studentInfo.setLastName(cursor.getString(2));
+                studentInfo.setPhonenumber(cursor.getString(3));
+                studentList.add(studentInfo);
+            } while (cursor.moveToNext());
+            cursor.close();
+            db.close();
+        }
+        return studentList;
+    }
+
+
+    public int oppdaterKontakt( Student kontakt )
+    {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(KEY_FIRSTNAME, kontakt.getFirstname());
+        values.put(KEY_LASTNAME, kontakt.getLastName());
+        values.put(KEY_PHONENUMBER, kontakt.getPhonenumber());
+        int endret = db.update(TABLE_STUDENT, values, KEY_ID + "= ?",
+                               new String[]{String.valueOf(kontakt.get_ID())});
+        db.close();
+
+        return endret;
+    }
 
 
 }

@@ -80,4 +80,11 @@
     <string name="pref_title_vibrate">Vibrate</string>
     <string name="change">Change student</string>
     <string name="delete">Delete student</string>
+    <string name="add_new_student">Add new student</string>
+    <string name="details_about_student">Details about student</string>
+    <string name="first_name">First name:</string>
+    <string name="last_name">Last name:</string>
+    <string name="id">ID:</string>
+    <string name="phonenumber">Phonenumber:</string>
+    <string name="edit_student">Edit student</string>
 </resources>

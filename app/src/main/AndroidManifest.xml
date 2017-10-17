@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".MainActivity">
+        <activity android:name=".ListViewActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -18,21 +18,28 @@
         </activity>
         <activity
             android:name=".NewStudentActivity"
-            android:parentActivityName=".MainActivity">
-        </activity>
-        <activity android:name=".ChangeStudentActivity">
-        </activity>
-        <activity android:name=".DeleteStudentActivity">
+            android:label="@string/add_new_student"
+            android:parentActivityName=".ListViewActivity">
         </activity>
         <activity android:name=".NewMessageActivity">
         </activity>
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".ListViewActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.larsh.mappe2s305357.MainActivity"/>
+                android:value="com.example.larsh.mappe2s305357.ListViewActivity"/>
+        </activity>
+        <activity
+            android:name=".DetailedActivity"
+            android:label="@string/details_about_student"
+            android:parentActivityName=".ListViewActivity">
+        </activity>
+        <activity
+            android:name=".EditStudentActivity"
+            android:label="@string/edit_student"
+            android:parentActivityName=".ListViewActivity">
         </activity>
     </application>
 

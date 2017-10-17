@@ -18,6 +18,8 @@ class StableArrayAdapter extends ArrayAdapter<String>
         }
     }
 
+
+
     @Override
     public long getItemId(int position) {
         String item = getItem(position);
