@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.example.larsh.mappe2s305357">
 
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -34,11 +37,6 @@
         <activity
             android:name=".DetailedActivity"
             android:label="@string/details_about_student"
-            android:parentActivityName=".ListViewActivity">
-        </activity>
-        <activity
-            android:name=".EditStudentActivity"
-            android:label="@string/edit_student"
             android:parentActivityName=".ListViewActivity">
         </activity>
     </application>
