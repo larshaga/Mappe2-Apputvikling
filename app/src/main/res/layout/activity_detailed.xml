@@ -31,8 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@id/firstname"
-        android:clickable="false"
-        android:focusable="false"/>
+       android:enabled="false"/>
 
     <TextView
         android:id="@+id/lastname"
@@ -48,8 +47,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@id/lastname"
-        android:clickable="false"
-        android:focusable="false"/>
+        android:enabled="false"/>
+
 
     <TextView
         android:id="@+id/id"
@@ -81,7 +80,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@id/phonenumber"
-        android:clickable="false"
-        android:focusable="false"/>
+        android:enabled="false"/>
+
 
 </RelativeLayout>

@@ -109,12 +109,10 @@ public class DetailedActivity extends AppCompatActivity
                 break;
             case R.id.editstudent:
 
-                studentFirstName.setClickable(true);
-                studentFirstName.setFocusable(true);
-                studentLastName.setClickable(true);
-                studentLastName.setFocusable(true);
-                studentPhonenumber.setClickable(true);
-                studentPhonenumber.setFocusable(true);
+                studentFirstName.setEnabled(true);
+                studentLastName.setEnabled(true);
+                studentPhonenumber.setEnabled(true);
+
 
 
                 editMenuIcon.setVisible(false);
