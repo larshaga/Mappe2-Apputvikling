@@ -2,28 +2,9 @@
       xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/refresh"
-        app:showAsAction="ifRoom"
-        android:icon="@drawable/ic_refresh_black_24dp"/>
-
-    <item
-        android:id="@+id/deletestudent"
-        android:title="@string/stringdeletestudent"
-        app:showAsAction="never"/>
-
-    <item
-        android:id="@+id/changestudent"
-        android:title="@string/stringchangestudent"
-        app:showAsAction="never"/>
-
-    <item
-        android:id="@+id/sendnewmessage"
-        android:title="@string/stringsendnewmessage"
-        app:showAsAction="never"/>
-
-    <item
         android:id="@+id/preferences"
+        android:icon="@drawable/ic_settings_black_24dp"
         android:title="@string/stringpreferences"
-        app:showAsAction="never"/>
+        app:showAsAction="ifRoom"/>
 
 </menu>
