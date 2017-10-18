@@ -6,12 +6,20 @@
     <item
         android:id="@+id/editstudent"
         android:icon="@drawable/ic_edit_black_24dp"
+        android:title="@string/edit_student"
         app:showAsAction="ifRoom"/>
 
     <item
         android:id="@+id/deletestudent"
         android:icon="@drawable/ic_delete_black_24dp"
+        android:title="@string/delete_student"
         app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/editstudentdone"
+        android:icon="@drawable/ic_done_black_24dp"
+        android:visible="false"
+        app:showAsAction="always"/>
 
 
 </menu>

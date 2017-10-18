@@ -118,6 +118,7 @@ public class DBHandler extends SQLiteOpenHelper
     public int oppdaterKontakt( Student kontakt )
     {
 
+
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(KEY_FIRSTNAME, kontakt.getFirstname());

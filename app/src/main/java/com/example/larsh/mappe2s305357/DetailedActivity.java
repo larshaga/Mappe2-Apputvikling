@@ -3,11 +3,15 @@ package com.example.larsh.mappe2s305357;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.view.menu.ActionMenuItem;
+import android.support.v7.view.menu.ActionMenuItemView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,6 +27,12 @@ public class DetailedActivity extends AppCompatActivity
     String detailsAboutStudentLastName = null;
     String detailedStudentID = null;
     String detailedStudentPhonenumber = null;
+    EditText studentFirstName;
+    EditText studentLastName;
+    EditText studentPhonenumber;
+    MenuItem editMenuIcon;
+    MenuItem doneMenuIcon;
+    MenuItem deleteMenuIcon;
     DBHandler db;
 
     @Override
@@ -34,10 +44,11 @@ public class DetailedActivity extends AppCompatActivity
 
         db = new DBHandler(this);
 
-        TextView studentFirstName = (TextView) findViewById(R.id.studentfirstname);
-        TextView studentLastName = (TextView) findViewById(R.id.studentlastname);
+
+        studentFirstName = (EditText) findViewById(R.id.editfirstname);
+        studentLastName = (EditText) findViewById(R.id.editlastname);
         TextView studentID = (TextView) findViewById(R.id.studentid);
-        TextView studentPhonenumber = (TextView) findViewById(R.id.studentphonenumber);
+        studentPhonenumber = (EditText) findViewById(R.id.editphonenumber);
 
 
         Toolbar topToolbar = (Toolbar) findViewById(R.id.top_toolbar);
@@ -78,6 +89,10 @@ public class DetailedActivity extends AppCompatActivity
 
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.detail_menu, menu);
+        editMenuIcon = menu.findItem(R.id.editstudent);
+        doneMenuIcon = menu.findItem(R.id.editstudentdone);
+        deleteMenuIcon = menu.findItem(R.id.deletestudent);
+
         return true;
     }
 
@@ -89,16 +104,29 @@ public class DetailedActivity extends AppCompatActivity
         {
             case R.id.deletestudent:
                 db.slettKontaktString(detailsAboutStudentFirstName, detailsAboutStudentLastName);
-                Toast.makeText(DetailedActivity.this, "Student deleted", Toast.LENGTH_SHORT).show();
+                Toast.makeText(DetailedActivity.this, "You deleted: " + detailedStudentName, Toast.LENGTH_SHORT).show();
                 finish();
                 break;
             case R.id.editstudent:
-                Intent editStudent = new Intent(this, EditStudentActivity.class);
-                Log.i("test", detailedStudentName);
-                editStudent.putExtra("StudentFirstName", detailsAboutStudentFirstName);
-                editStudent.putExtra("StudentLastName", detailsAboutStudentLastName);
-                editStudent.putExtra("StudentPhonenumber", detailedStudentPhonenumber);
-                startActivity(editStudent);
+
+                studentFirstName.setClickable(true);
+                studentFirstName.setFocusable(true);
+                studentLastName.setClickable(true);
+                studentLastName.setFocusable(true);
+                studentPhonenumber.setClickable(true);
+                studentPhonenumber.setFocusable(true);
+
+
+                editMenuIcon.setVisible(false);
+                deleteMenuIcon.setVisible(false);
+                doneMenuIcon.setVisible(true);
+
+                Toast.makeText(DetailedActivity.this, "You can now edit the student", Toast.LENGTH_LONG).show();
+                break;
+            case R.id.editstudentdone:
+                oppdater();
+
+                finish();
                 break;
             default:
                 return super.onOptionsItemSelected(item);
@@ -106,5 +134,16 @@ public class DetailedActivity extends AppCompatActivity
         return true;
     }
 
+
+    public void oppdater( )
+    {
+
+        Student kontakt = new Student();
+        kontakt.setFirstname(studentFirstName.getText().toString());
+        kontakt.setLastName(studentLastName.getText().toString());
+        kontakt.setPhonenumber(studentPhonenumber.getText().toString());
+        kontakt.set_ID(Long.parseLong(detailedStudentID));
+        db.oppdaterKontakt(kontakt);
+    }
 
 }

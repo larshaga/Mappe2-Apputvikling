@@ -87,4 +87,5 @@
     <string name="id">ID:</string>
     <string name="phonenumber">Phonenumber:</string>
     <string name="edit_student">Edit student</string>
+    <string name="delete_student">Delete student</string>
 </resources>

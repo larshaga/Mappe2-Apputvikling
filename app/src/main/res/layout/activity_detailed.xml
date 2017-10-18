@@ -25,34 +25,38 @@
         android:layout_below="@+id/top_toolbar"
         android:text="@string/first_name"/>
 
-    <TextView
-        android:id="@+id/studentfirstname"
+    <EditText
+        android:id="@+id/editfirstname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/firstname"
-        android:layout_toEndOf="@+id/firstname"/>
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/firstname"
+        android:clickable="false"
+        android:focusable="false"/>
 
     <TextView
         android:id="@+id/lastname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_below="@id/firstname"
+        android:layout_below="@id/editfirstname"
         android:text="@string/last_name"/>
 
-    <TextView
-        android:id="@+id/studentlastname"
+    <EditText
+        android:id="@+id/editlastname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/lastname"
-        android:layout_toEndOf="@id/lastname"/>
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/lastname"
+        android:clickable="false"
+        android:focusable="false"/>
 
     <TextView
         android:id="@+id/id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_below="@id/lastname"
+        android:layout_below="@id/editlastname"
         android:text="@string/id"/>
 
     <TextView
@@ -62,6 +66,7 @@
         android:layout_alignBottom="@id/id"
         android:layout_toEndOf="@id/id"/>
 
+
     <TextView
         android:id="@+id/phonenumber"
         android:layout_width="wrap_content"
@@ -70,11 +75,13 @@
         android:layout_below="@id/id"
         android:text="@string/phonenumber"/>
 
-    <TextView
-        android:id="@+id/studentphonenumber"
+    <EditText
+        android:id="@+id/editphonenumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/phonenumber"
-        android:layout_toEndOf="@id/phonenumber"/>
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/phonenumber"
+        android:clickable="false"
+        android:focusable="false"/>
 
 </RelativeLayout>
