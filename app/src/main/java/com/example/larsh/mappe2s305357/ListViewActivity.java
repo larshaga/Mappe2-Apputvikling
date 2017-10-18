@@ -148,29 +148,20 @@ public class ListViewActivity extends AppCompatActivity
 
         });
 
-        Log.i("notifyDataSetChanged", "notifyDataSetChanged");
-        adapter.notifyDataSetChanged();
     }
 
     @Override
     public boolean onOptionsItemSelected( MenuItem item )
     {
 
-        switch (item.getItemId())
+        if (item.getItemId() == R.id.preferences)
         {
-            case R.id.refresh:
-                recreate();
-                Toast.makeText(this, "ListView refreshed", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.changestudent:
-
-                break;
-            case R.id.preferences:
-                Intent changePreferences = new Intent(this, SettingsActivity.class);
-                startActivity(changePreferences);
-                break;
-            default:
-                return super.onOptionsItemSelected(item);
+            Intent changePreferences = new Intent(this, SettingsActivity.class);
+            startActivity(changePreferences);
+        }
+        else
+        {
+            return super.onOptionsItemSelected(item);
         }
         return true;
     }
