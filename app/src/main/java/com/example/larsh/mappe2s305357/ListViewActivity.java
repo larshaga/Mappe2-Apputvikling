@@ -39,9 +39,6 @@ public class ListViewActivity extends AppCompatActivity
         Toolbar topToolbar = (Toolbar) findViewById(R.id.top_toolbar);
         setSupportActionBar(topToolbar);
 
-        final ListView listAllStudents = (ListView) findViewById(R.id.studentlistview);
-        listAllStudents.invalidateViews();
-
         FloatingActionButton btn_addStudent = (FloatingActionButton) findViewById(R.id.btn_addStudent);
         FloatingActionButton btn_newMsg = (FloatingActionButton) findViewById(R.id.btn_sendNewMsg);
 
@@ -68,10 +65,28 @@ public class ListViewActivity extends AppCompatActivity
             }
         });
 
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu( Menu menu )
+    {
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.listview_menu, menu);
+        return true;
+    }
+
+    @Override
+    public void onResume( )
+    {
+
+        super.onResume();
+        final ListView listAllStudents = (ListView) findViewById(R.id.studentlistview);
+        listAllStudents.invalidateViews();
 
         final List<Student> studenter = db.finnAlleKontakter();
         final ArrayList<String> allStudentsInList = new ArrayList<>(studenter.size());
-
 
         int i = 0;
         for (Student studentInfo : studenter)
@@ -133,16 +148,8 @@ public class ListViewActivity extends AppCompatActivity
 
         });
 
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu( Menu menu )
-    {
-
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.listview_menu, menu);
-        return true;
+        Log.i("notifyDataSetChanged", "notifyDataSetChanged");
+        adapter.notifyDataSetChanged();
     }
 
     @Override
