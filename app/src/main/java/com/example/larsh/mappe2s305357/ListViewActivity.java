@@ -121,6 +121,7 @@ public class ListViewActivity extends AppCompatActivity
                                 String slettStudentFornavn = slettStudent[1].trim();
 
                                 db.slettKontaktString(slettStudentFornavn, slettStudentEtternavn);
+                                recreate();
 
                             }
                         })
