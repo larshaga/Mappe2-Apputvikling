@@ -57,11 +57,11 @@ public class DBHandler extends SQLiteOpenHelper
         db.close();
     }
 
-    public List<Student> finnAlleKontakter( )
+    public List<Student> findAllStudents( )
     {
 
         List<Student> kontaktListe = new ArrayList<Student>();
-        String selectQuery = "SELECT * FROM " + TABLE_STUDENT;
+        String selectQuery = "SELECT * FROM " + TABLE_STUDENT + " ORDER BY " + KEY_LASTNAME;
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
         if (cursor.moveToFirst())
@@ -130,6 +130,5 @@ public class DBHandler extends SQLiteOpenHelper
 
         return endret;
     }
-
 
 }
