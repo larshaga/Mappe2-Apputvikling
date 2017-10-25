@@ -80,8 +80,12 @@ public class DetailedActivity extends AppCompatActivity
         studentID.setText(detailedStudentID);
         studentPhonenumber.setText(detailedStudentPhonenumber);
 
-
+        // Enables the back button
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu( Menu menu )
