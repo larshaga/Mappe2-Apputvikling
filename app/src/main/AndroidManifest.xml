@@ -15,7 +15,6 @@
         <activity android:name=".ListViewActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
@@ -24,7 +23,10 @@
             android:label="@string/add_new_student"
             android:parentActivityName=".ListViewActivity">
         </activity>
-        <activity android:name=".NewMessageActivity">
+        <activity
+            android:name=".NewMessageActivity"
+            android:label="@string/send_new_message"
+            android:parentActivityName=".ListViewActivity">
         </activity>
         <activity
             android:name=".SettingsActivity"
