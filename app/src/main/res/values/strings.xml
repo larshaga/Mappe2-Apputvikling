@@ -88,4 +88,7 @@
     <string name="phonenumber">Phonenumber:</string>
     <string name="edit_student">Edit student</string>
     <string name="delete_student">Delete student</string>
+    <string name="message">Message:</string>
+    <string name="send_new_message">Send new message</string>
+    <string name="send_message">Send message</string>
 </resources>
