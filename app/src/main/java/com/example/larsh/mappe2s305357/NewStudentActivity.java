@@ -8,8 +8,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.util.List;
 
 public class NewStudentActivity extends AppCompatActivity
@@ -52,7 +50,7 @@ public class NewStudentActivity extends AppCompatActivity
 
     public void visalle(View v)
     {
-        List<Student> kontakter = db.finnAlleKontakter();
+        List<Student> kontakter = db.findAllStudents();
         String tekst ="";
 
         for (Student kontakt : kontakter)
