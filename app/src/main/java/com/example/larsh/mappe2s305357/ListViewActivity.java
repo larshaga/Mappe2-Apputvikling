@@ -15,7 +15,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,7 +48,8 @@ public class ListViewActivity extends AppCompatActivity
             public void onClick( View view )
             {
 
-                Log.i("message", "Sending new Msg");
+                Intent sendNewMessage = new Intent(ListViewActivity.this,NewMessageActivity.class);
+                startActivity(sendNewMessage);
             }
         });
 
@@ -85,7 +85,7 @@ public class ListViewActivity extends AppCompatActivity
         final ListView listAllStudents = (ListView) findViewById(R.id.studentlistview);
         listAllStudents.invalidateViews();
 
-        final List<Student> studenter = db.finnAlleKontakter();
+        final List<Student> studenter = db.findAllStudents();
         final ArrayList<String> allStudentsInList = new ArrayList<>(studenter.size());
 
         int i = 0;
