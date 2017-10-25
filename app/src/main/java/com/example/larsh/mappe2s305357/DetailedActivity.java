@@ -86,7 +86,6 @@ public class DetailedActivity extends AppCompatActivity
     }
 
 
-
     @Override
     public boolean onCreateOptionsMenu( Menu menu )
     {
@@ -116,7 +115,6 @@ public class DetailedActivity extends AppCompatActivity
                 studentFirstName.setEnabled(true);
                 studentLastName.setEnabled(true);
                 studentPhonenumber.setEnabled(true);
-
 
 
                 editMenuIcon.setVisible(false);
