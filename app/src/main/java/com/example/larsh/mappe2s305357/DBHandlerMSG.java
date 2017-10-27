@@ -21,7 +21,7 @@ public class DBHandlerMSG extends SQLiteOpenHelper
     static String KEY_MSG_MESSAGE = "Message";
     static String KEY_MSG_DATE = "Date";
     static String KEY_MSG_STATUS = "Status";
-    static int DATABASE_VERSION = 3;
+    static int DATABASE_VERSION = 7;
     static String DATABASE_NAME = "Messages";
 
     public DBHandlerMSG( Context context )
@@ -50,11 +50,6 @@ public class DBHandlerMSG extends SQLiteOpenHelper
 
     public void newMessage( String phonenumber, String message, String date, String status )
     {
-        Log.i("phonenumBer",phonenumber);
-        Log.i("message",message);
-        Log.i("date",date);
-        Log.i("status",status);
-
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(KEY_MSG_PHONENUMBER, phonenumber);
