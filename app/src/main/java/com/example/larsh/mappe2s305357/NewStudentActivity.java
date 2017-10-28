@@ -29,8 +29,10 @@ public class NewStudentActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_student);
 
-        Toolbar topToolbar = (Toolbar)findViewById(R.id.top_toolbar);
+        Toolbar topToolbar = (Toolbar) findViewById(R.id.top_toolbar);
         setSupportActionBar(topToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
 
         fornavninn = (EditText) findViewById(R.id.fornavn);
         etternavninn = (EditText) findViewById(R.id.etternavn);
