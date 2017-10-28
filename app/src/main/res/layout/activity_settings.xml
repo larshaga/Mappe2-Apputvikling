@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.larsh.mappe2s305357.SettingsActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/top_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+    <TextView
+        android:id="@+id/TXT_weeklyMessagesToStudents"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/top_toolbar"
+        android:layout_marginTop="15dp"
+        android:text="@string/weekly_message_to_all"/>
+
+    <Switch
+        android:id="@+id/weeklyMSGSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/top_toolbar"
+        android:layout_marginTop="15dp"
+        android:checked="false"/>
+
+    <EditText
+        android:id="@+id/weeklyMessageText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TXT_weeklyMessagesToStudents"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:enabled="false"
+        android:inputType="textMultiLine"/>
+
+</RelativeLayout>
