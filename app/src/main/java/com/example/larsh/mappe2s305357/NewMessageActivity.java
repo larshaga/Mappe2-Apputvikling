@@ -1,7 +1,12 @@
 package com.example.larsh.mappe2s305357;
 
+import android.app.AlarmManager;
 import android.app.DatePickerDialog;
+import android.app.PendingIntent;
 import android.app.TimePickerDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -17,6 +22,7 @@ import android.widget.Toast;
 
 import java.util.Calendar;
 import java.util.List;
+import java.util.Random;
 
 public class NewMessageActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener
 {
@@ -105,8 +111,6 @@ public class NewMessageActivity extends AppCompatActivity implements DatePickerD
     public void sendSMSNow( String phoneNumber, String message )
     {
 
-        String date = null;
-
         Calendar savingDate = Calendar.getInstance();
         int messageDate = savingDate.get(Calendar.DATE);
         int messageMonth = savingDate.get(Calendar.MONTH);
@@ -114,7 +118,7 @@ public class NewMessageActivity extends AppCompatActivity implements DatePickerD
         int messageHour = savingDate.get(Calendar.HOUR_OF_DAY);
         int messageMinute = savingDate.get(Calendar.MINUTE);
 
-        date = messageDate + "/" + messageMonth + "-" + messageYear + ", " + messageHour + ":" + messageMinute;
+        String date = messageDate + "/" + messageMonth + "-" + messageYear + ", " + messageHour + ":" + messageMinute;
         try
         {
             SmsManager smsManager = SmsManager.getDefault();
@@ -153,7 +157,7 @@ public class NewMessageActivity extends AppCompatActivity implements DatePickerD
         scheduledMonth = i1 + 1;
         scheduledDay = i2;
         datePickerReady = true;
-        preparesendSMSLater();
+        prepareSendSMSLater();
     }
 
 
@@ -165,10 +169,10 @@ public class NewMessageActivity extends AppCompatActivity implements DatePickerD
         scheduledHour = i;
         scheduledMinute = i1;
         timePickerReady = true;
-        preparesendSMSLater();
+        prepareSendSMSLater();
     }
 
-    public void preparesendSMSLater( )
+    public void prepareSendSMSLater( )
     {
 
         if (datePickerReady && timePickerReady)
@@ -194,6 +198,16 @@ public class NewMessageActivity extends AppCompatActivity implements DatePickerD
             db_MSG.newMessage(phoneNumber, String.valueOf(typedMessageText.getText()), date, "Not sent");
 
             Toast.makeText(NewMessageActivity.this, "Message scheduled for " + date, Toast.LENGTH_SHORT).show();
+
+            AlarmManager alarmMgr = null;
+            PendingIntent alarmIntent = null;
+
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTimeInMillis(System.currentTimeMillis());
+            calendar.set(Calendar.HOUR_OF_DAY, 14);
+
+            alarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY * 7,alarmIntent);
+
         } catch (Exception e)
         {
             Toast.makeText(NewMessageActivity.this, e.getMessage().toString(), Toast.LENGTH_LONG).show();
@@ -202,6 +216,22 @@ public class NewMessageActivity extends AppCompatActivity implements DatePickerD
 
 
     }
+
+/*    private void sendSMSWithDelay( String number, String responseMessage,
+                                   int delayInResponce )
+    {
+
+        Intent intent = new Intent(Settings.Global.getMyApplicationContext(), MyCallBroadcastReceiver.class);
+        // Intent i = new Intent(MessageService.this,
+        // ViewMessageActivity.class);
+        intent.putExtra("number", number);
+        intent.putExtra("message", responseMessage);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(
+                Settings.Global.getMyApplicationContext(), new Random().nextLong(), intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        AlarmManager alarmManager = (AlarmManager) Settings.Global.getMyApplicationContext().getSystemService(Settings.Global.getMyApplicationContext().ALARM_SERVICE);
+        alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + (delayInResponce * 60 * 1000), pendingIntent);
+
+    }*/
 
 
 }
