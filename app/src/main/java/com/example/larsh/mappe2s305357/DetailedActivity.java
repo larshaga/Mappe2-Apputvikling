@@ -58,14 +58,10 @@ public class DetailedActivity extends AppCompatActivity
         Bundle bundle = nameFromMain.getExtras();
         detailedStudentName = bundle.getString("StudentFirstAndLastName");
 
-        Log.i("detailedStudentName", detailedStudentName);
-
         String[] detailsAboutStudent = detailedStudentName.split(",");
         detailsAboutStudentLastName = detailsAboutStudent[0].trim();
         detailsAboutStudentFirstName = detailsAboutStudent[1].trim();
 
-        Log.i("det", detailsAboutStudentFirstName);
-        Log.i("det", detailsAboutStudentLastName);
         final List<Student> studenter = db.findAStudent(detailsAboutStudentFirstName, detailsAboutStudentLastName);
 
         for (Student studentInfo : studenter)
