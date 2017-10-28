@@ -15,6 +15,7 @@
         <activity android:name=".ListViewActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
+
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
@@ -29,18 +30,18 @@
             android:parentActivityName=".ListViewActivity">
         </activity>
         <activity
-            android:name=".SettingsActivity"
-            android:label="@string/title_activity_settings"
-            android:parentActivityName=".ListViewActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.larsh.mappe2s305357.ListViewActivity"/>
-        </activity>
-        <activity
             android:name=".DetailedActivity"
             android:label="@string/details_about_student"
             android:parentActivityName=".ListViewActivity">
         </activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/settings"
+            android:parentActivityName=".ListViewActivity">
+        </activity>
+
+        <service android:name=".MinService"/>
+
     </application>
 
 </manifest>
