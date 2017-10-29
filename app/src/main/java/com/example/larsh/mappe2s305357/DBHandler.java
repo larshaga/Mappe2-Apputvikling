@@ -124,8 +124,7 @@ public class DBHandler extends SQLiteOpenHelper
         values.put(KEY_FIRSTNAME, kontakt.getFirstname());
         values.put(KEY_LASTNAME, kontakt.getLastName());
         values.put(KEY_PHONENUMBER, kontakt.getPhonenumber());
-        int endret = db.update(TABLE_STUDENT, values, KEY_ID + "= ?",
-                               new String[]{String.valueOf(kontakt.get_ID())});
+        int endret = db.update(TABLE_STUDENT, values, KEY_ID + "= ?", new String[]{String.valueOf(kontakt.get_ID())});
         db.close();
 
         return endret;

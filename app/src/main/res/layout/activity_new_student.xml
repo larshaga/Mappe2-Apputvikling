@@ -1,63 +1,74 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              android:orientation="vertical">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimaryLight"
+                android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/top_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
+        android:background="@color/colorPrimary"
         android:elevation="4dp"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Fornavn:"/>
+        android:layout_below="@+id/top_toolbar"
+        android:layout_margin="@dimen/pretty"
+        android:text="@string/first_name"/>
 
     <EditText
         android:id="@+id/fornavn"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        android:layout_margin="@dimen/pretty"/>
 
     <TextView
+        android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Etternavn:"/>
+        android:layout_below="@id/fornavn"
+        android:layout_margin="@dimen/pretty"
+        android:text="@string/last_name"/>
 
     <EditText
         android:id="@+id/etternavn"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView3"
+        android:layout_margin="@dimen/pretty"
+        android:layout_marginBottom="30dp"/>
 
     <TextView
+        android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Telefon:"/>
+        android:layout_below="@id/etternavn"
+        android:layout_margin="@dimen/pretty"
+        android:text="@string/phonenumber"/>
 
     <EditText
         android:id="@+id/telefon"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView2"
+        android:layout_margin="@dimen/pretty"
+        android:inputType="phone"
+        android:singleLine="true"/>
 
     <Button
-        android:id="@+id/leggtil"
+        android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/pretty"
         android:onClick="leggtil"
-        android:text="Legg til"/>
-    <Button
-        android:id="@+id/visalle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="visalle"
-        android:text="Vis alle" />
+        android:text="@string/legg_til"/>
 
-    <TextView
-        android:id="@+id/utskrift"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-</LinearLayout>
+</RelativeLayout>

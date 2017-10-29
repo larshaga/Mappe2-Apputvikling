@@ -36,9 +36,7 @@ public class NewMessageActivity extends AppCompatActivity implements DatePickerD
     int scheduledMinute;
     boolean timePickerReady = false;
     boolean datePickerReady = false;
-    String sendingMessageText = null;
     EditText typedMessageText;
-    TextView utskrift;
 
     @Override
     protected void onCreate( Bundle savedInstanceState )
@@ -58,7 +56,6 @@ public class NewMessageActivity extends AppCompatActivity implements DatePickerD
         Button sendNewMessageNow = (Button) findViewById(R.id.btn_sendMessageNow);
         Button sendNewMessageLater = (Button) findViewById(R.id.btn_sendMessageLater);
         typedMessageText = (EditText) findViewById(R.id.newMessageText);
-        utskrift = (TextView) findViewById(R.id.utskrift);
 
 
         // Gets the date of today
@@ -134,20 +131,6 @@ public class NewMessageActivity extends AppCompatActivity implements DatePickerD
 
     }
 
-    public void visalle( View v )
-    {
-
-        List<Message> kontakter = db_MSG.findAllMessages();
-        String tekst = "";
-
-        for (Message kontakt : kontakter)
-        {
-            tekst = tekst + "ID: " + kontakt.getMessage_ID() + "NR: " + kontakt.getMessagePhonenumber() + "STATUS: " + kontakt.getMessageStatus() + "DATE: " + kontakt.getMessageDate() + "MSG: " + kontakt.getMessageMessage();
-            Log.d("Navn: ", tekst);
-        }
-        utskrift.setText(tekst);
-    }
-
     @Override
     public void onDateSet( DatePicker datePicker, int i, int i1, int i2 )
     {
@@ -199,39 +182,13 @@ public class NewMessageActivity extends AppCompatActivity implements DatePickerD
 
             Toast.makeText(NewMessageActivity.this, "Message scheduled for " + date, Toast.LENGTH_SHORT).show();
 
-            AlarmManager alarmMgr = null;
-            PendingIntent alarmIntent = null;
-
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTimeInMillis(System.currentTimeMillis());
-            calendar.set(Calendar.HOUR_OF_DAY, 14);
-
-            alarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY * 7,alarmIntent);
+            // Her skal egentlig AlarmManageren være.
+            // Den skal gå igjennom databasen og søke etter linjer som har status "ikke sent", så skal den se hvor lang tid det er til denne datoen og schedule en bakgrunnsprosess, slik at meldingene blir sent på riktig tidspunkt.
 
         } catch (Exception e)
         {
             Toast.makeText(NewMessageActivity.this, e.getMessage().toString(), Toast.LENGTH_LONG).show();
             e.printStackTrace();
         }
-
-
     }
-
-/*    private void sendSMSWithDelay( String number, String responseMessage,
-                                   int delayInResponce )
-    {
-
-        Intent intent = new Intent(Settings.Global.getMyApplicationContext(), MyCallBroadcastReceiver.class);
-        // Intent i = new Intent(MessageService.this,
-        // ViewMessageActivity.class);
-        intent.putExtra("number", number);
-        intent.putExtra("message", responseMessage);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(
-                Settings.Global.getMyApplicationContext(), new Random().nextLong(), intent, PendingIntent.FLAG_UPDATE_CURRENT);
-        AlarmManager alarmManager = (AlarmManager) Settings.Global.getMyApplicationContext().getSystemService(Settings.Global.getMyApplicationContext().ALARM_SERVICE);
-        alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + (delayInResponce * 60 * 1000), pendingIntent);
-
-    }*/
-
-
 }

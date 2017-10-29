@@ -11,7 +11,7 @@
         android:id="@+id/top_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
+        android:background="@color/colorPrimary"
         android:elevation="4dp"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
@@ -20,7 +20,8 @@
         android:id="@+id/studentlistview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/top_toolbar"/>
+        android:layout_below="@id/top_toolbar"
+        android:background="@color/colorPrimaryLight"/>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/btn_addStudent"
@@ -30,6 +31,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginBottom="100dp"
         android:layout_marginEnd="25dp"
+        app:backgroundTint="@color/basecolor"
         app:fabSize="normal"
         app:srcCompat="@drawable/ic_add_circle_outline_black_24dp"/>
 
@@ -41,6 +43,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginBottom="25dp"
         android:layout_marginEnd="25dp"
+        app:backgroundTint="@color/basecolorDifferent"
         app:fabSize="normal"
         app:srcCompat="@drawable/ic_message_black_24dp"/>
 

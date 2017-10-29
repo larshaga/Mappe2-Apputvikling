@@ -33,7 +33,7 @@ public class ListViewActivity extends AppCompatActivity
         db = new DBHandler(this);
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_list);
 
         Toolbar topToolbar = (Toolbar) findViewById(R.id.top_toolbar);
         setSupportActionBar(topToolbar);
@@ -48,7 +48,7 @@ public class ListViewActivity extends AppCompatActivity
             public void onClick( View view )
             {
 
-                Intent sendNewMessage = new Intent(ListViewActivity.this,NewMessageActivity.class);
+                Intent sendNewMessage = new Intent(ListViewActivity.this, NewMessageActivity.class);
                 startActivity(sendNewMessage);
             }
         });
@@ -92,7 +92,6 @@ public class ListViewActivity extends AppCompatActivity
         for (Student studentInfo : studenter)
         {
             allStudentsInList.add(i, studentInfo.getLastName() + ", " + studentInfo.getFirstname());
-            Log.i("listing all studentens", studentInfo.getLastName() + ", " + studentInfo.getFirstname());
             i++;
         }
 

@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -16,11 +17,7 @@ public class NewStudentActivity extends AppCompatActivity
     EditText fornavninn;
     EditText etternavninn;
     EditText telefoninn;
-    TextView utskrift;
     DBHandler db;
-
-
-
 
     @Override
     protected void onCreate( Bundle savedInstanceState )
@@ -36,30 +33,23 @@ public class NewStudentActivity extends AppCompatActivity
 
         fornavninn = (EditText) findViewById(R.id.fornavn);
         etternavninn = (EditText) findViewById(R.id.etternavn);
-        telefoninn= (EditText) findViewById(R.id.telefon);
-        utskrift = (TextView) findViewById(R.id.utskrift);
+        telefoninn = (EditText) findViewById(R.id.telefon);
         db = new DBHandler(this);
 
     }
 
-    public void leggtil(View v )
+    public void leggtil( View v )
     {
-        Student kontakt = new Student(fornavninn.getText().toString(),etternavninn.getText().toString(),telefoninn.getText().toString());
-        db.addStudent(kontakt);
-        Log.d("Legg inn: ", "legger til kontakter");
-        finish();
-    }
 
-    public void visalle(View v)
-    {
-        List<Student> kontakter = db.findAllStudents();
-        String tekst ="";
-
-        for (Student kontakt : kontakter)
+        if (fornavninn.getText().length() == 0 || etternavninn.getText().length() == 0 || telefoninn.getText().length() != 8)
         {
-            tekst = tekst + "Id: " + kontakt.get_ID() + ",Fornavn: " + kontakt.getFirstname() + ",Etternavn: " + kontakt.getLastName() + " ,Telefon: " + kontakt.getPhonenumber();
-            Log.d("Navn: ", tekst);
+            Toast.makeText(this, "Check your info and try again, all fields needs to be filled out and phonenumber needs to be 8 characters.", Toast.LENGTH_LONG).show();
+            return;
         }
-        utskrift.setText(tekst);
+
+        Student kontakt = new Student(fornavninn.getText().toString(), etternavninn.getText().toString(), telefoninn.getText().toString());
+        db.addStudent(kontakt);
+        finish();
+
     }
 }

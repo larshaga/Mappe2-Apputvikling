@@ -5,13 +5,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryLight"
     tools:context="com.example.larsh.mappe2s305357.SettingsActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/top_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
+        android:background="@color/colorPrimary"
         android:elevation="4dp"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
@@ -22,6 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/top_toolbar"
+        android:layout_margin="@dimen/pretty"
         android:layout_marginTop="15dp"
         android:text="@string/weekly_message_to_all"/>
 
@@ -31,6 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/top_toolbar"
+        android:layout_margin="@dimen/pretty"
         android:layout_marginTop="15dp"
         android:checked="false"/>
 
@@ -40,8 +43,20 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/TXT_weeklyMessagesToStudents"
         android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/pretty"
         android:layout_marginTop="10dp"
         android:enabled="false"
         android:inputType="textMultiLine"/>
+
+    <Button
+        android:id="@+id/btn_schedule"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/weeklyMessageText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="@dimen/pretty"
+        android:layout_marginRight="@dimen/pretty"
+        android:enabled="false"
+        android:text="@string/schedule"/>
 
 </RelativeLayout>

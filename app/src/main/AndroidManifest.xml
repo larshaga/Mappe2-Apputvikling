@@ -4,6 +4,11 @@
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="com.example.contentproviderbok.permission"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE">
+    </uses-permission>
+
+    <permission android:name="com.example.contentproviderbok.permission"/>
 
     <application
         android:allowBackup="true"
@@ -39,7 +44,8 @@
             android:parentActivityName=".ListViewActivity">
         </activity>
 
-        <service android:name=".MinService"/>
+        <service android:name=".BackgroundService"/>
+        <receiver android:name=".AlarmReceiver"/>
 
     </application>
 

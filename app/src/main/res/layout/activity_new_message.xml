@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:background="@color/colorPrimaryLight"
     android:orientation="vertical"
     tools:context="com.example.larsh.mappe2s305357.NewMessageActivity">
 
@@ -13,18 +13,17 @@
         android:id="@+id/top_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
+        android:background="@color/colorPrimary"
         android:elevation="4dp"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/top_toolbar"
-        android:layout_marginStart="47dp"
-        android:layout_marginTop="15dp"
-        android:layout_toEndOf="@+id/btn_sendMessageLater"
+        android:layout_margin="@dimen/pretty"
         android:text="@string/message"/>
 
     <EditText
@@ -33,14 +32,20 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/top_toolbar"
-        android:layout_marginTop="52dp"/>
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="50dp"
+        android:inputType="textMultiLine"
+        android:selectAllOnFocus="true"/>
+
 
     <Button
         android:id="@+id/btn_sendMessageNow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/btn_sendMessageLater"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
+        android:layout_marginBottom="15dp"
         android:text="@string/send_now"/>
 
     <Button
@@ -49,26 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="11dp"
-        android:onClick="showTimePickerDialog"
+        android:layout_marginBottom="15dp"
         android:text="@string/send_later"/>
-
-    <Button
-        android:id="@+id/visalle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="visalle"
-        android:text="Vis alle"
-        android:layout_below="@+id/newMessageText"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="126dp"/>
-
-    <TextView
-        android:id="@+id/utskrift"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/newMessageText"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="24dp"/>
 
 </RelativeLayout>
